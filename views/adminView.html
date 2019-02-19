@@ -1,0 +1,34 @@
+{% set title = 'Admin View' %}
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="admin-view">
+    <div class="admin-view-title">
+      <h2>Products</h2>
+      <a href="/createProduct"><button class="btn">+ New Product</button></a>
+    </div>
+    {% for product in products %}
+    <form action="/createPlan" method="POST">
+      <input hidden value="{{ product.id }}" name="productId"/>
+      <input hidden value="{{ product.name }}" name="productName"/>
+
+      <div class="admin-view-product">
+        <div class="admin-view-product-title">
+          <h4 class="admin-view-product-name">{{product.name}}</h4>
+          <input class="btn btn-small" type="submit" value="+ New Plan">
+        </div>
+        
+        {% for plan in product.plans %}
+          <div class="admin-view-plan">
+            <p>{{plan.nickname}}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </form>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+<script>
+
+</script>

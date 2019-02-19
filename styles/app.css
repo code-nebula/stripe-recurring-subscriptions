@@ -1,0 +1,112 @@
+body {
+  font-family: "Open Sans", "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body * {
+  box-sizing: border-box
+}
+
+.app-container {
+  padding: 32px;
+  width: 100%;
+}
+
+/* General */
+.btn {
+  background-color: #576adb;
+  color: #ffffff;
+  padding: 8px 12px;
+  border: 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "Open Sans", "Helvetica", sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-small {
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+/* Admin View */
+.admin-view {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.admin-view-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-view-title h2 {
+  margin-right: 24px;
+}
+
+.admin-view-product {
+  padding: 16px;
+  background-color: #eee;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.admin-view-product-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-view-product-name {
+  margin: 0 8px 0 0;
+}
+
+
+/* Create product */
+.create-product, .create-plan {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.create-product-container, .create-plan-container {
+  padding: 24px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+input {
+  border: 0px;
+  background-color: #fff;
+  border-radius: 4px;
+  color: black;
+  padding: 8px 12px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  font-family: "Open Sans", "Helvetica", sans-serif;
+  width: 100%;
+  border: 1px solid #d7d7d7;
+}
+
+input:focus {
+  outline: 0 !important;
+  border: 1px solid #adb8f9;
+}
+
+input.btn {
+  width: auto;
+  display: inline-block;
+  margin-bottom: 0px;
+}

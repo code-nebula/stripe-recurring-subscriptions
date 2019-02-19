@@ -1,0 +1,33 @@
+{% set title = 'Create Product' %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="create-product">
+  <h2>Create New Product</h2>
+  <div class="create-product-container">
+    <form action="/createProduct" method="POST">
+      <div>
+          <label>Product Name</label>
+          <input class="signup-text" placeholder="Product Name" name="productName"/>
+      </div>
+    
+      <div>
+          <label>Product Type</label>
+          <input class="signup-text" placeholder="Product Type" name="productType" />
+      </div>
+        
+      <div>
+          <input class="btn" type="submit" value="Create Product">
+      </div>
+    </form>
+  </div>
+
+  <div>
+    {% if success %}
+      <div>success</div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

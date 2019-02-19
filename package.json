@@ -1,0 +1,24 @@
+{
+  "name": "stripe-recurring-subscriptions",
+  "version": "1.0.0",
+  "description": "A tutorial on setting up recurring subscriptions with Stripe.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stripe",
+    "recurring",
+    "billing",
+    "subscriptions"
+  ],
+  "author": "Amy Sitwala",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "nunjucks": "^3.1.7",
+    "stripe": "^6.25.1"
+  }
+}

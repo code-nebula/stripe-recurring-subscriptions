@@ -1,0 +1,45 @@
+{% set title = 'Create Plan' %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="create-plan">
+  <h2>{{ productName }}: Create New Plan</h2>
+  <div class="create-plan-container">
+    <form action="/createPlanForReal" method="POST">
+      <input hidden value="{{ productId }}" name="productId"/>
+
+      <div>
+        <label>Name</label>
+        <input class="signup-text" placeholder="Your Plan's Name" name="planName"/>
+      </div>
+    
+      <div>
+        <label>Price</label>
+        <input class="signup-text" placeholder="Your Plan's Price" name="planPrice" />
+      </div>
+
+      <div>
+        <label>Interval</label>
+        <input class="signup-text" placeholder="Interval Type" name="planInterval" />
+      </div>
+
+      <div>
+        <label>Interval Number</label>
+        <input class="signup-text" placeholder="Interval Number" name="planIntervalNumber" />
+      </div>
+        
+      <div>
+        <input class="btn" type="submit" value="Create Plan">
+      </div>
+    </form>
+  </div>
+
+  <div>
+    {% if success %}
+      <div>success</div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
