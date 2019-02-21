@@ -1,0 +1,29 @@
+{% set title = 'Customer View' %}
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="customer-view">
+  {% for product in products %}
+  <div class="customer-view-products">
+    <h1>{{product.name}}</h1>
+    <div class="customer-view-plans">
+      {% for plan in product.plans %}
+      <div class="customer-view-plan">
+        <form action="/signUp" method="POST">
+          <input hidden value="{{ product.id }}" name="productId"/>
+          <input hidden value="{{ plan.id }}" name="planId"/>
+          <input hidden value="{{ plan.nickname }}" name="planName"/>
+          <input hidden value="{{ plan.amount }}" name="planAmount"/>
+          <h3>{{plan.nickname}} - {{ plan.amount }}</h3>
+          <input class="btn" type="submit" value="Sign Up"/>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
