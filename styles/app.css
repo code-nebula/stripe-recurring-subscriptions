@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 body * {
@@ -14,7 +15,17 @@ body * {
   width: 100%;
 }
 
-.app-container p {
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-header a {
+  text-decoration: none;
+}
+
+.app-header p {
   margin: 0 6px;
   font-size: 12px;
   cursor: pointer;
@@ -23,27 +34,21 @@ body * {
   color: #a5a5a5;
 }
 
-.app-container p:hover {
+.app-header p:hover {
   color: #576adb;
 }
 
-.app-container p.active {
+.app-header p.active {
   color: #576adb;
   border-color: #acb6f3;
 }
 
-.app-container span {
+.app-header span {
   display: inline-block;
   color: #aaa;
   font-size: 16px;
   padding-bottom: 2px;
   border-bottom: 3px solid transparent;
-}
-
-.app-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* General */
@@ -129,12 +134,19 @@ input {
   margin-bottom: 24px;
   font-family: "Open Sans", "Helvetica", sans-serif;
   width: 100%;
-  border: 1px solid #d7d7d7;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
 }
 
 input:focus {
   outline: 0 !important;
-  border: 1px solid #adb8f9;
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+input::placeholder {
+  color: #aab7c4;
 }
 
 input.btn {
@@ -144,10 +156,6 @@ input.btn {
 }
 
 /* Customer View */
-.customer-view-products {
-
-}
-
 .customer-view-plans {
   display: flex;
   align-items: center;
@@ -164,4 +172,25 @@ input.btn {
 
 .customer-view-plan:nth-last-of-type(1) {
   margin-right: 0px;
+}
+
+/* Sign Up Page */
+.sign-up {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sign-up-container {
+  padding: 24px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.sign-up .btn {
+  margin-top: 16px;
+}
+
+#card-errors {
+  margin-top: 6px;
+  font-size: 14px;
 }

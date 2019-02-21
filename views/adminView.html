@@ -1,4 +1,5 @@
 {% set title = 'Admin View' %}
+{% set admin = true %}
 {% extends 'base.html' %}
 
 {% block content %}
@@ -20,7 +21,7 @@
         
         {% for plan in product.plans %}
           <div class="admin-view-plan">
-            <p>{{plan.nickname}}</p>
+            <p>{{plan.nickname}} &mdash; {{ plan.amount }}</p>
           </div>
         {% endfor %}
       </div>

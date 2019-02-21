@@ -1,14 +1,111 @@
 {% set title = 'Sign Up' %}
+{% set admin = false %}
 {% extends 'base.html' %}
 
-{% block head %}
-<script src="https://js.stripe.com/v3/"></script>
-{% endblock %}
-
 {% block content %}
-<div>
+<div class="sign-up">
+  <h2>Sign up for {{ plan.name }} - {{ plan.amount }} </h2> 
+  <div class="sign-up-container">
+    <form action="/charge" method="POST" id="payment-form">
+      <input hidden value="{{ plan.id }}" name="planId"/>
+
+      <label>
+        Email Address
+      </label>
+      <input placeholder="Your Email Address" name="email"/>
+      <div class="form-row">
+        <label for="card-element">
+          Credit or debit card
+        </label>
+        <div id="card-element">
+          <!-- A Stripe Elements instance will be mounted here -->
+        </div>
+
+        <!-- Any error messages will be mounted here -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+
+      <button class="btn">Submit Payment</button>
+
+    </form>
+  </div>
 
 </div>
+
+<script>
+  var stripe = Stripe('pk_test_c40OQ8rabAOQun6GtkXxCF7U');
+  var elements = stripe.elements();
+
+  /* Custom styling can be passed to options when creating an Element */
+  var style = {
+    base: {
+      fontSize: '16px', '::placeholder': { color: "#aab7c4"},
+      fontFamily: '"Open Sans", "Helvetica", sans-serif',
+      fontSmoothing: 'antialiased',
+    },
+    invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a'
+    }
+  };
+
+  /* Create a Stripe Elements instance 
+     and mount to the div with the id 'card-element' */
+
+  var card = elements.create('card', {style: style});
+
+  card.mount('#card-element');
+
+  /* Handle validation errors */
+  card.addEventListener('change', event => {
+    var displayError = document.getElementById('card-errors');
+    
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = ''; 
+    }
+  });
+
+
+
+
+</script>
+
+<style>
+  /**
+  * The CSS shown here will not be introduced in the Quickstart guide, but shows
+  * how you can use CSS to style your Element's container.
+  */
+  .StripeElement {
+    box-sizing: border-box;
+
+    height: 40px;
+
+    padding: 10px 12px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+</style>
+
+
 {% endblock %}
 
-<script></script>
