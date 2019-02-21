@@ -155,6 +155,21 @@ input.btn {
   margin-bottom: 0px;
 }
 
+.label-input-container {
+  position: relative;
+}
+
+.label-left-input {
+  padding-left: 26px;
+}
+
+.label-currency {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  color: #777;
+}
+
 /* Customer View */
 .customer-view-plans {
   display: flex;
