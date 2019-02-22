@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
@@ -7,9 +6,6 @@ const app = express();
 const port = 3000;
 const router = express.Router();
 
-var stripe = require('stripe')(process.env.STRIPE_API_KEY);
-
-const UTILS = require('./utils/format-numbers.js');
 const STRIPE_API = require('./api/stripe-functions.js');
 
 
@@ -83,6 +79,23 @@ router.post('/signUp', (req, res) => {
   }
 
   res.render('signUp.html', {product: product, plan: plan});
+});
+
+router.post('/processPayment', (req, res) => {
+  var product = {
+    id: req.body.productId
+  };
+
+  var plan = {
+    id: req.body.planId,
+    name: req.body.planName,
+    amount: req.body.planAmount
+  }
+
+  STRIPE_API.createCustomerAndSubscription(req.body).then(() => {
+    res.render('signup.html', {product: product, plan: plan, success: true});
+  });
+
 });
 
 

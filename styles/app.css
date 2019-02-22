@@ -10,6 +10,10 @@ body * {
   box-sizing: border-box
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
 .app-container {
   padding: 32px;
   width: 100%;
@@ -69,59 +73,12 @@ body * {
   padding: 6px 8px;
 }
 
-/* Admin View */
-.admin-view {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.admin-view-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.admin-view-title h2 {
-  margin-right: 24px;
-}
-
-.admin-view-product {
-  padding: 16px;
-  background-color: #eee;
-  border-radius: 3px;
-  width: 100%;
-  margin-bottom: 24px;
-}
-
-.admin-view-product-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.admin-view-product-name {
-  margin: 0 8px 0 0;
-}
-
-
-/* Create product */
-.create-product, .create-plan {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.create-product-container, .create-plan-container {
-  padding: 24px;
-  background-color: #eee;
-  border-radius: 3px;
-}
-
 label {
   display: block;
   text-transform: uppercase;
   font-size: 14px;
   margin-bottom: 4px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 input {
@@ -168,44 +125,4 @@ input.btn {
   top: 7px;
   left: 12px;
   color: #777;
-}
-
-/* Customer View */
-.customer-view-plans {
-  display: flex;
-  align-items: center;
-
-}
-
-.customer-view-plan {
-  background-color: #eee;
-  padding: 24px;
-  border-radius: 4px;
-  flex: 1;
-  margin-right: 24px;
-}
-
-.customer-view-plan:nth-last-of-type(1) {
-  margin-right: 0px;
-}
-
-/* Sign Up Page */
-.sign-up {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.sign-up-container {
-  padding: 24px;
-  background-color: #eee;
-  border-radius: 3px;
-}
-
-.sign-up .btn {
-  margin-top: 16px;
-}
-
-#card-errors {
-  margin-top: 6px;
-  font-size: 14px;
 }

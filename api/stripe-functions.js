@@ -36,23 +36,41 @@ function createProduct(requestBody) {
     name: requestBody.productName,
     type: 'service'
   });
-};
+}
 
 
-function createPlan(requestBody, callback = {}) {
+function createPlan(requestBody) {
   return stripe.plans.create({
     nickname: requestBody.planName,
-    amount: parseInt(requestBody.planPrice),
+    amount: UTILS.formatStripeAmount(requestBody.planAmount),
     interval: requestBody.planInterval,
     interval_count: parseInt(requestBody.planIntervalNumber),
     product: requestBody.productId,
     currency: 'USD'
   });
-};
+}
+
+
+function createCustomerAndSubscription(requestBody) {
+  return stripe.customers.create({
+    source: requestBody.stripeToken,
+    email: requestBody.customerEmail
+  }).then(customer => {
+    stripe.subscriptions.create({
+      customer: customer.id,
+      items: [
+        {
+          plan: requestBody.planId
+        }
+      ]
+    });
+  })
+}
 
 
 module.exports = {
   getAllProductsAndPlans,
   createProduct,
-  createPlan
+  createPlan,
+  createCustomerAndSubscription
 };

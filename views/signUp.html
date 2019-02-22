@@ -6,13 +6,16 @@
 <div class="sign-up">
   <h2>Sign up for {{ plan.name }} &mdash; {{ plan.amount }} </h2> 
   <div class="sign-up-container">
-    <form action="/charge" method="POST" id="payment-form">
+    <form action="/processPayment" method="POST" id="payment-form">
+      <input hidden value="{{ product.id }}" name="productId"/>
       <input hidden value="{{ plan.id }}" name="planId"/>
+      <input hidden value="{{ plan.amount }}" name="planAmount"/>
+      <input hidden value="{{ plan.name }}" name="planName"/>
 
       <label>
         Email Address
       </label>
-      <input placeholder="Your Email Address" name="email"/>
+      <input placeholder="Your Email Address" name="customerEmail"/>
       <div class="form-row">
         <label for="card-element">
           Credit or debit card
@@ -68,6 +71,32 @@
   });
 
 
+  /* Create a token when the form is submitted */
+  var form = document.getElementById('payment-form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    stripe.createToken(card).then(function(result) {
+      if (result.error) {
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = result.error.message;
+      } else {
+        stripeTokenHandler(result.token);
+      }
+    })
+  });
+
+
+  function stripeTokenHandler(token) {
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+    form.submit();
+  }
 
 
 </script>

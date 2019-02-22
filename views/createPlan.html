@@ -18,10 +18,9 @@
       <div>
         <label>Price</label>
         <div class="label-input-container">
-          <input class="label-left-input" placeholder="Your Plan's Price" name="planPrice"/>
+          <input class="label-left-input" id="plan-price" placeholder="Your Plan's Price" name="planPrice"/>
           <span class="label-currency">$</span>
         </div>
-
       </div>
 
       <div>
@@ -46,5 +45,19 @@
     {% endif %}
   </div>
 </div>
+
+<script>
+  /* Format price input to have at most 2 decimal places */
+  var priceInput = document.getElementById('plan-price');
+
+  priceInput.addEventListener('input', function(evt) {
+    var price = evt.target.value; 
+    var decimalPlaces = price.split('.');
+    if (decimalPlaces.length === 2 && decimalPlaces[1].length > 2) {
+      this.value = (Math.round(parseFloat(price) * 100) / 100).toFixed(2);
+    }
+  });
+
+</script>
 
 {% endblock %}

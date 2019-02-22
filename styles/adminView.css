@@ -1,0 +1,46 @@
+/* Admin View */
+.admin-view {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.admin-view-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-view-title h2 {
+  margin-right: 24px;
+}
+
+.admin-view-product {
+  padding: 16px;
+  background-color: #eee;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.admin-view-product-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-view-product-name {
+  margin: 0 8px 0 0;
+}
+
+
+/* Create product */
+.create-product, .create-plan {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.create-product-container, .create-plan-container {
+  padding: 24px;
+  background-color: #eee;
+  border-radius: 3px;
+}
