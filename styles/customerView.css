@@ -26,6 +26,15 @@
 .sign-up {
   width: 50%;
   margin: 0 auto;
+  min-width: 280px;
+}
+
+.sign-up h2 {
+  margin-top: 6px;
+}
+
+.sign-up-product {
+  margin-top: 24px;
 }
 
 .sign-up-container {

@@ -6,6 +6,15 @@
 
 <div class="create-plan">
   <h2>{{ productName }}: Create New Plan</h2>
+  {% if success %}
+  <div class="success-message">
+    <p></p>
+  </div>
+  {% elif error %}
+  <div class="error-message">
+    <p></p>
+  </div>
+  {% else %}
   <div class="create-plan-container">
     <form action="/createPlanForReal" method="POST">
       <input hidden value="{{ productId }}" name="productId"/>
@@ -38,12 +47,7 @@
       </div>
     </form>
   </div>
-
-  <div>
-    {% if success %}
-      <div>success</div>
-    {% endif %}
-  </div>
+  {% endif %}
 </div>
 
 <script>

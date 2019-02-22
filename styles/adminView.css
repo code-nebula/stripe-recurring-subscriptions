@@ -1,7 +1,10 @@
 /* Admin View */
-.admin-view {
+.admin-view,
+.create-product, 
+.create-plan  {
   width: 50%;
   margin: 0 auto;
+  min-width: 280px;
 }
 
 .admin-view-title {
@@ -34,11 +37,6 @@
 
 
 /* Create product */
-.create-product, .create-plan {
-  width: 50%;
-  margin: 0 auto;
-}
-
 .create-product-container, .create-plan-container {
   padding: 24px;
   background-color: #eee;

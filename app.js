@@ -69,33 +69,39 @@ router.get('/customerView', (req, res) => {
 
 router.post('/signUp', (req, res) => {
   var product = {
-    id: req.body.productId
+    name: req.body.productName
   };
 
   var plan = {
     id: req.body.planId,
     name: req.body.planName,
-    amount: req.body.planAmount
+    amount: req.body.planAmount,
+    interval: req.body.planInterval,
+    interval_count: req.body.planIntervalCount
   }
 
   res.render('signUp.html', {product: product, plan: plan});
 });
 
+
 router.post('/processPayment', (req, res) => {
   var product = {
-    id: req.body.productId
+    name: req.body.productName
   };
 
   var plan = {
     id: req.body.planId,
     name: req.body.planName,
-    amount: req.body.planAmount
+    amount: req.body.planAmount,
+    interval: req.body.planInterval,
+    interval_count: req.body.planIntervalCount
   }
 
   STRIPE_API.createCustomerAndSubscription(req.body).then(() => {
     res.render('signup.html', {product: product, plan: plan, success: true});
+  }).catch(err => {
+    res.render('signup.html', {product: product, plan: plan, error: true});
   });
-
 });
 
 

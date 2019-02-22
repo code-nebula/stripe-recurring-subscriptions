@@ -4,13 +4,34 @@
 
 {% block content %}
 <div class="sign-up">
-  <h2>Sign up for {{ plan.name }} &mdash; {{ plan.amount }} </h2> 
+  <label class="sign-up-product">
+    {{ product.name }}
+  </label>
+  <h2>Sign up for {{ plan.name }} &mdash; {{ plan.amount }} /
+    {% if (plan.interval_count > 1) %} 
+      {{ plan.interval_count }} {{ plan.interval }}s
+      
+    {% else %}
+      {{ plan.interval }}
+    {% endif %}
+  </h2> 
+  {% if success %}
+  <div>
+    <p>Your payment was successful. Congrats, you've successfully signed up! </p>
+  </div>
+  {% elif error %}
+  <div>
+    <p>Your payment was unsuccessful. Please try again.</p>
+  </div>
+  {% else %}
   <div class="sign-up-container">
     <form action="/processPayment" method="POST" id="payment-form">
-      <input hidden value="{{ product.id }}" name="productId"/>
+      <input hidden value="{{ product.name }}" name="productName"/>
       <input hidden value="{{ plan.id }}" name="planId"/>
       <input hidden value="{{ plan.amount }}" name="planAmount"/>
       <input hidden value="{{ plan.name }}" name="planName"/>
+      <input hidden value="{{ plan.interval }}" name="planInterval"/>
+      <input hidden value="{{ plan.interval_count }}" name="planIntervalCount"/>
 
       <label>
         Email Address
@@ -28,10 +49,10 @@
         <div id="card-errors" role="alert"></div>
       </div>
 
-      <button class="btn">Submit Payment</button>
-
+      <button class="btn">Pay {{ plan.amount }}</button>
     </form>
   </div>
+{% endif %}
 
 </div>
 

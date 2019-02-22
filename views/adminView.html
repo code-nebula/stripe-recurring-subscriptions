@@ -21,7 +21,14 @@
         
         {% for plan in product.plans %}
           <div class="admin-view-plan">
-            <p>{{plan.nickname}} &mdash; {{ plan.amount }}</p>
+            <p>{{plan.nickname}} &mdash; {{ plan.amount }} / 
+              {% if (plan.interval_count > 1) %} 
+                {{ plan.interval_count }} {{ plan.interval }}s
+                
+              {% else %}
+                {{ plan.interval }}
+              {% endif %}
+            </p>
           </div>
         {% endfor %}
       </div>

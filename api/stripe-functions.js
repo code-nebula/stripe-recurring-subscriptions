@@ -13,7 +13,12 @@ function getAllProductsAndPlans() {
     var products = stripeData[0].data;
     var plans = stripeData[1].data; 
 
-    plans = plans.map(plan => {
+    plans = plans.sort((a, b) => {
+      /* Sort plans in ascending order of price (amount)
+       * Ref: https://www.w3schools.com/js/js_array_sort.asp */
+      return a.amount - b.amount;
+    }).map(plan => {
+      /* Format plan price (amount) */
       amount = UTILS.formatUSD(plan.amount)
       return {...plan, amount};
     });
@@ -64,7 +69,7 @@ function createCustomerAndSubscription(requestBody) {
         }
       ]
     });
-  })
+  });
 }
 
 
