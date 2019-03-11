@@ -13,12 +13,12 @@
       {% for plan in product.plans %}
       <div class="customer-view-plan">
         <form action="/signUp" method="POST">
-          <input hidden value="{{ product.name }}" name="productName"/>
-          <input hidden value="{{ plan.id }}" name="planId"/>
-          <input hidden value="{{ plan.nickname }}" name="planName"/>
-          <input hidden value="{{ plan.amount }}" name="planAmount"/>
-          <input hidden value="{{ plan.interval }}" name="planInterval"/>
-          <input hidden value="{{ plan.interval_count }}" name="planIntervalCount"/>
+          <input type="hidden" value="{{ product.name }}" name="productName"/>
+          <input type="hidden" value="{{ plan.id }}" name="planId"/>
+          <input type="hidden" value="{{ plan.nickname }}" name="planName"/>
+          <input type="hidden" value="{{ plan.amount }}" name="planAmount"/>
+          <input type="hidden" value="{{ plan.interval }}" name="planInterval"/>
+          <input type="hidden" value="{{ plan.interval_count }}" name="planIntervalCount"/>
           <h3>{{plan.nickname}} &mdash; {{ plan.amount }} / 
             {% if (plan.interval_count > 1) %} 
               {{ plan.interval_count }} {{ plan.interval }}s

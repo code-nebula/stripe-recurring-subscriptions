@@ -10,8 +10,8 @@
     </div>
     {% for product in products %}
     <form action="/createPlan" method="POST">
-      <input hidden value="{{ product.id }}" name="productId"/>
-      <input hidden value="{{ product.name }}" name="productName"/>
+      <input type="hidden" value="{{ product.id }}" name="productId"/>
+      <input type="hidden" value="{{ product.name }}" name="productName"/>
 
       <div class="admin-view-product">
         <div class="admin-view-product-title">
