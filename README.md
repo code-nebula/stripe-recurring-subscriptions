@@ -7,7 +7,7 @@ It uses Express for creating a simple server, Nunjucks for templating, and the S
 It features 
 
 1. An **Admin View** when you can create Stripe Products and Plans via the Stripe API.
-2. A **Client View** where your users can view and pay for your subscription plans.  We’ve written a detailed, 3-part tutorial about this code here: https://codenebula.io/stripe/node.js/2019/04/11/creating-monthly-recurring-subscriptions-in-stripe-using-node-js-part-1/ 
+2. A **Client View** where your users can view and pay for your subscription plans.
 
 
 ## Demo Video
@@ -17,7 +17,7 @@ It features
 
 ## Tutorial
 
-We’ve written a detailed, 3-part tutorial about this code here: 
+We’ve written a detailed, 3-part tutorial about this code on the :star2: CodeNebula blog: 
 [Creating Monthly Recurring Subscriptions in Stripe using Node.js](https://codenebula.io/stripe/node.js/2019/04/11/creating-monthly-recurring-subscriptions-in-stripe-using-node-js-part-1/)
 
 
